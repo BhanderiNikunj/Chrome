@@ -96,25 +96,28 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 2),
             Expanded(
-              child: InAppWebView(
-                initialUrlRequest: URLRequest(
-                  url: Uri.parse("https://www.google.com/"),
+              child: Container(
+                color: Colors.black,
+                child: InAppWebView(
+                  initialUrlRequest: URLRequest(
+                    url: Uri.parse("https://www.google.com/"),
+                  ),
+                  onWebViewCreated: (controller) {
+                    homeProvidertrue!.inAppWebViewController = controller;
+                  },
+                  onLoadError: (controller, url, code, message) {
+                    homeProvidertrue!.inAppWebViewController = controller;
+                  },
+                  onLoadStart: (controller, url) {
+                    homeProvidertrue!.inAppWebViewController = controller;
+                  },
+                  onLoadStop: (controller, url) {
+                    homeProvidertrue!.inAppWebViewController = controller;
+                  },
+                  onProgressChanged: (controller, progress) {
+                    homeProviderfalse!.ChangeProgress(progress / 100);
+                  },
                 ),
-                onWebViewCreated: (controller) {
-                  homeProvidertrue!.inAppWebViewController = controller;
-                },
-                onLoadError: (controller, url, code, message) {
-                  homeProvidertrue!.inAppWebViewController = controller;
-                },
-                onLoadStart: (controller, url) {
-                  homeProvidertrue!.inAppWebViewController = controller;
-                },
-                onLoadStop: (controller, url) {
-                  homeProvidertrue!.inAppWebViewController = controller;
-                },
-                onProgressChanged: (controller, progress) {
-                  homeProviderfalse!.ChangeProgress(progress / 100);
-                },
               ),
             ),
           ],

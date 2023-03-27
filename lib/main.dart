@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:untitled2/Screen/FlashScreen/View/FlashScreen.dart';
 import 'package:untitled2/Screen/Home/HomePageProvider/HomePageProvider.dart';
 import 'package:untitled2/Screen/Home/View/HomePage.dart';
 
@@ -13,7 +14,8 @@ void main() {
       ],
       child: MaterialApp(
         routes: {
-          '/': (context) => HomePage(),
+          '/': (context) => FlashScreen(),
+          'home': (context) => HomePage(),
         },
       ),
     ),
